@@ -26,16 +26,16 @@ class _ChatPageState extends State<ChatPage> {
 
   _hideKeyboardSolutions() {
     //To hide Keyboard solution - 1 (A temporary solution)
+/*
     FocusScope.of(context).unfocus();
     print(
         "Solution1- FocusScope Info: ${FocusScope.of(context).nearestScope}"); //Info: FocusScopeNode#6e22f(_ModalScopeState<dynamic> Focus Scope [IN FOCUS PATH])(context: FocusScope, IN FOCUS PATH, focusedChildren: [FocusNode#c394a([PRIMARY FOCUS])], traversalEdgeBehavior: TraversalEdgeBehavior.parentScope)
+*/
 
     //To hide Keyboard solution - 2 (Working)
-/*
-        FocusManager.instance.primaryFocus?.unfocus();
-        print(
-            "Solution2- FocusManager Info: ${FocusScope.of(context).nearestScope}"); //FocusScopeNode#9dfd6(_ModalScopeState<dynamic> Focus Scope [IN FOCUS PATH])(context: FocusScope, IN FOCUS PATH)
-*/
+    FocusManager.instance.primaryFocus?.unfocus();
+    print(
+        "Solution2- FocusManager Info: ${FocusScope.of(context).nearestScope}"); //FocusScopeNode#9dfd6(_ModalScopeState<dynamic> Focus Scope [IN FOCUS PATH])(context: FocusScope, IN FOCUS PATH)
 
     //To hide Keyboard solution - 3 (Working)
 /*        _focusNode.unfocus();
@@ -43,7 +43,7 @@ class _ChatPageState extends State<ChatPage> {
             "Solution3- FocusManager Info: ${FocusScope.of(context).nearestScope}"); //FocusScopeNode#9dfd6(_ModalScopeState<dynamic> Focus Scope [IN FOCUS PATH])(context: FocusScope, IN FOCUS PATH)
       */
 
-    //To hide Keyboard solution - 4 (Working)
+    //To hide Keyboard solution - 4 (Working but it requires double call to remove the primary node)
 /*
     SystemChannels.textInput.invokeMethod('TextInput.hide');
     print(
